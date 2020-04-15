@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axiosWithAuth from '../axios/axiosWithAuth'
+import axiosWithAuth from '../../axios/axiosWithAuth'
 
 
 export default function Private(props) {

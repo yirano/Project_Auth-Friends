@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axiosWithAuth from '../axios/axiosWithAuth'
+import axiosWithAuth from '../../axios/axiosWithAuth'
 
 export default function Login(props) {
   const [credentials, setCredentials] = useState({ username: '', password: '' })

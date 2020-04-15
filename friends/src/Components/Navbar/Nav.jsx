@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
-import { Switch, Route, Link, Router, Redirect } from 'react-router-dom'
-import Public from './Public'
-import Private from './Private'
-import Login from './Login'
+import React from 'react'
+import { Switch, Route, Link, Redirect } from 'react-router-dom'
+import Public from '../Public/Public'
+import Private from '../Private/Private'
+import Login from '../Public/Login'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return <Route
@@ -18,9 +17,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   />
 }
 
-
 export const Nav = () => {
-
   return (
     <div>
       <nav className="navbar">
@@ -29,7 +26,7 @@ export const Nav = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/protected">Protected page</Link>
+            <Link to="/protected">Members Only</Link>
           </li>
         </ul>
       </nav>
