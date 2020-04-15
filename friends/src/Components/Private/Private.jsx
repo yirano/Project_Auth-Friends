@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axiosWithAuth from '../../axios/axiosWithAuth'
-
+import Card from './Friends/Card'
 
 export default function Private(props) {
   const [friends, setFriends] = useState([])
@@ -10,18 +10,25 @@ export default function Private(props) {
       .then(res => {
         setFriends(res.data)
       })
+
   }, [])
+
+  const logOut = () => {
+    console.log("log out");
+    localStorage.removeItem('token')
+    props.history.push('/login')
+  }
+
   return (
-    <div>
-      {friends.map(friend => {
-        return (
-          <>
-            <h4>{friend.name}</h4>
-            <p>{friend.age}</p>
-            <p>{friend.email}</p>
-          </>
-        )
-      })}
-    </div>
+    <>
+      <div className="friendContainer">
+        {friends.map(friend => {
+          return (
+            <Card friend={friend} />
+          )
+        })}
+      </div >
+      <button onClick={() => logOut()}>Log Out</button>
+    </>
   )
 }

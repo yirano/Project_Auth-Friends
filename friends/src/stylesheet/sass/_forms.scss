@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 10% 4%;
+  margin: auto;
+  width: 50%;
+  border: 1px solid rgb(199, 199, 199);
+  input{
+    padding: 3px 12px;
+  }
+}

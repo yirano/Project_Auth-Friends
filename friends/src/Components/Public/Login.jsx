@@ -14,8 +14,6 @@ export default function Login(props) {
       })
   }
 
-
-
   const handleChange = e => {
     setCredentials({
       ...credentials,
@@ -26,16 +24,19 @@ export default function Login(props) {
 
   return (
     <form onSubmit={e => login(e)}>
+      <h4>Log in</h4>
       <input
         type="name"
         name="username"
         value={credentials.username}
+        placeholder="Username"
         onChange={e => handleChange(e)}
       />
       <input
         type="password"
         name="password"
         value={credentials.password}
+        placeholder="Password"
         onChange={e => handleChange(e)}
       />
       <input type="submit" />
