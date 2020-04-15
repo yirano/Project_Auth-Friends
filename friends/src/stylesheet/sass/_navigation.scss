@@ -1,11 +1,16 @@
 .navbar {
-  padding: 20px 0;
-  ul {
-    display: flex;
-    list-style-type: none;
-    justify-content: space-evenly;
-    a {
-      text-decoration: none;
-    }
-  }
+	padding: 20px 9%;
+	background: #3b5897;
+
+	ul {
+		display: flex;
+		list-style-type: none;
+		justify-content: space-between;
+		align-items: center;
+		a {
+			text-decoration: none;
+			color: #fff;
+			font-size: 3rem;
+		}
+	}
 }

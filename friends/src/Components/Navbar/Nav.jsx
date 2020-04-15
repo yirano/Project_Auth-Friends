@@ -23,16 +23,16 @@ export const Nav = () => {
       <nav className="navbar">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">facebook</Link>
           </li>
           <li>
-            <Link to="/protected">Members Only</Link>
+            {/* <Link to="/protected">Members Only</Link> */}
+            <Route path="/login" component={Login} />
           </li>
         </ul>
       </nav>
       <Switch>
         <Route exact path="/" component={Public} />
-        <Route path="/login" component={Login} />
         <PrivateRoute path="/protected" component={Private} />
       </Switch>
     </div>

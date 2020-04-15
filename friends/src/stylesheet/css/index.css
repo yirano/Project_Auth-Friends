@@ -49,27 +49,41 @@ h1, h2, h3, h4 {
 
 form {
   display: flex;
-  flex-direction: column;
   align-self: center;
-  padding: 10% 4%;
-  margin: auto;
-  width: 50%;
-  border: 1px solid #c7c7c7;
 }
-form input {
-  padding: 3px 12px;
+form .inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+form .inputContainer label {
+  color: #fff;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+form .inputContainer input {
+  font-size: 0.8rem;
+  border: 1px solid black;
+  margin-right: 8px;
+  padding: 4px 3px;
+}
+form .inputContainer input[type=submit] {
+  margin-top: 15px;
 }
 
 .navbar {
-  padding: 20px 0;
+  padding: 20px 9%;
+  background: #3b5897;
 }
 .navbar ul {
   display: flex;
   list-style-type: none;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
 }
 .navbar ul a {
   text-decoration: none;
+  color: #fff;
+  font-size: 3rem;
 }
 
 .friendContainer {
