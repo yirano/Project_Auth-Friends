@@ -86,6 +86,25 @@ form .inputContainer input[type=submit] {
   font-size: 3rem;
 }
 
+.signInContainer {
+  display: flex;
+  padding: 2% 9%;
+}
+.signInContainer div {
+  width: 50%;
+}
+.signInContainer .signUp form {
+  display: flex;
+  flex-direction: column;
+}
+.signInContainer .signUp form input {
+  justify-content: stretch;
+}
+.signInContainer .signUp form .formName {
+  display: flex;
+  flex-direction: row;
+}
+
 .friendContainer {
   display: flex;
   flex-wrap: wrap;

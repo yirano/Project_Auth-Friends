@@ -47,6 +47,19 @@ let friends = [
   }
 ];
 
+const logins = [
+  {
+    name: 'Sara',
+    user: 'sara@email.com',
+    password: 'sara'
+  },
+  {
+    name: 'John',
+    user: 'john@email.com',
+    password: 'john'
+  }
+]
+
 app.use(bodyParser.json());
 
 app.use(cors());
@@ -62,7 +75,8 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'abc' && password === 'abc') {
+
+  if (logins.filter(login => login.user === username && login.password === password).length > 0) {
     req.loggedIn = true;
     res.status(200).json({
       payload: token

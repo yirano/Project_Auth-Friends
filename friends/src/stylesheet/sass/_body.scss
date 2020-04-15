@@ -1,13 +1,33 @@
+.signInContainer {
+	display: flex;
+	padding: 2% 9%;
+	div {
+		width: 50%;
+	}
+	.signUp {
+		form {
+			display: flex;
+			flex-direction: column;
+			input {
+				justify-content: stretch;
+			}
+			.formName {
+				display: flex;
+				flex-direction: row;
+			}
+		}
+	}
+}
+
 .friendContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 
-  .friendCard {
-    width: 250px;
-    margin: 1% 0;
-    padding: 1% 3%;
-    border: 1px solid blue;
-
-  }
+	.friendCard {
+		width: 250px;
+		margin: 1% 0;
+		padding: 1% 3%;
+		border: 1px solid blue;
+	}
 }

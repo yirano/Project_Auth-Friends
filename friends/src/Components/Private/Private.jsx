@@ -16,7 +16,7 @@ export default function Private(props) {
   const logOut = () => {
     console.log("log out");
     localStorage.removeItem('token')
-    props.history.push('/login')
+    props.history.push('/')
   }
 
   return (
