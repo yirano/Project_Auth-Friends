@@ -1,7 +1,7 @@
 import React from 'react'
-import { Route, Link, Router, Redirect } from 'react-router-dom'
+import { Switch, Route, Link, Router, Redirect } from 'react-router-dom'
 import Public from './Public'
-import Protected from './Private'
+import Private from './Private'
 import Login from './Login'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -30,9 +30,11 @@ export const Nav = () => {
           </li>
         </ul>
       </nav>
-      <Route path="/public" component={Public} />
-      <Route path="/login" component={Login} />
-      <PrivateRoute path="/protected" component={Protected} render={() => <Protected />} />
+      <Switch>
+        <Route exact path="/" component={Public} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute path="/protected" component={Private} />
+      </Switch>
     </div>
   )
 }
