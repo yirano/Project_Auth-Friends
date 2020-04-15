@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios'
 import { Switch, Route, Link, Router, Redirect } from 'react-router-dom'
 import Public from './Public'
 import Private from './Private'
@@ -17,7 +18,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   />
 }
 
+
 export const Nav = () => {
+
   return (
     <div>
       <nav className="navbar">
