@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route, Link, Redirect } from 'react-router-dom'
-import Public from '../Public/Public'
+import Signin from '../Public/Signin'
 import Private from '../Private/Private'
 import Login from '../Public/Login'
 
@@ -27,12 +27,12 @@ export const Nav = () => {
           </li>
           <li>
             {/* <Link to="/protected">Members Only</Link> */}
-            <Route path="/login" component={Login} />
+            <Route path="/" component={Login} />
           </li>
         </ul>
       </nav>
       <Switch>
-        <Route exact path="/" component={Public} />
+        <Route exact path="/" component={Signin} />
         <PrivateRoute path="/protected" component={Private} />
       </Switch>
     </div>
