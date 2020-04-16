@@ -88,6 +88,11 @@ app.post('/api/login', (req, res) => {
   }
 });
 
+app.post('/api/signup', (req, res) => {
+  res.json({ message: 'something happened' })
+})
+
+
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
     res.send(friends);

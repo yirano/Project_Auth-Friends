@@ -5,7 +5,6 @@ export default function Login(props) {
   const [credentials, setCredentials] = useState({ username: '', password: '' })
   const login = e => {
     e.preventDefault()
-    console.log('submitted');
     axiosWithAuth().post('http://localhost:5000/api/login', credentials)
       .then(res => {
         console.log(res);
@@ -25,7 +24,7 @@ export default function Login(props) {
   return (
     <form onSubmit={e => login(e)}>
       <div className="inputContainer">
-        <label for="password">Username</label>
+        <label htmlFor="password">Username</label>
         <input
           type="name"
           name="username"
@@ -35,7 +34,7 @@ export default function Login(props) {
         />
       </div>
       <div className="inputContainer">
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
