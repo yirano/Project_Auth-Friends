@@ -9,7 +9,7 @@ export default function Login(props) {
       .then(res => {
         console.log(res);
         localStorage.setItem('token', res.data.payload)
-        props.history.push('/protected')
+        props.history.push('/members')
       })
   }
 
@@ -22,30 +22,34 @@ export default function Login(props) {
   }
 
   return (
-    <form onSubmit={e => login(e)}>
-      <div className="inputContainer">
-        <label htmlFor="password">Username</label>
-        <input
-          type="name"
-          name="username"
-          value={credentials.username}
-          placeholder="Username"
-          onChange={e => handleChange(e)}
-        />
-      </div>
-      <div className="inputContainer">
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={credentials.password}
-          placeholder="Password"
-          onChange={e => handleChange(e)}
-        />
-      </div>
-      <div className="inputContainer button">
-        <input type="submit" value="Log In" />
-      </div>
-    </form>
+    <div className="loginForm">
+      <h3>Sign In</h3>
+      <form onSubmit={e => login(e)}>
+        <div className="inputContainer">
+          <label htmlFor="password">Username</label>
+          <input
+            type="name"
+            name="username"
+            value={credentials.username}
+            placeholder="Username"
+            onChange={e => handleChange(e)}
+          />
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            placeholder="Password"
+            onChange={e => handleChange(e)}
+          />
+        </div>
+        <div className="inputContainer button">
+          <input type="submit" value="Log In" />
+        </div>
+      </form>
+    </div>
+
   )
 }

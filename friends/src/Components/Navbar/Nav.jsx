@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Switch, Route, Link, Redirect } from 'react-router-dom'
-import Signin from '../Public/Signin'
-import Private from '../Private/Private'
+import Homepage from '../Public/Homepage'
+import Members from '../Private/Members'
 import Login from '../Public/Login'
+import axiosWithAuth from '../../axios/axiosWithAuth'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return <Route
@@ -17,23 +18,27 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   />
 }
 
-export const Nav = () => {
+export const Nav = (props) => {
+  const logOut = () => {
+    console.log("log out");
+    localStorage.removeItem('token')
+  }
   return (
     <div>
       <nav className="navbar">
         <ul>
           <li>
-            <Link to="/">facebook</Link>
+            <Link to="/">AB</Link>
           </li>
           <li>
-            {/* <Link to="/protected">Members Only</Link> */}
-            <Route path="/" component={Login} />
+            {localStorage.getItem('token') ? <a onClick={() => logOut()} href="/">Sign Out</a> : <Link to="/members">Sign In</Link>}
           </li>
         </ul>
       </nav>
       <Switch>
-        <Route exact path="/" component={Signin} />
-        <PrivateRoute path="/protected" component={Private} />
+        <Route exact path="/" component={Homepage} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute path="/members" component={Members} />
       </Switch>
     </div>
   )
