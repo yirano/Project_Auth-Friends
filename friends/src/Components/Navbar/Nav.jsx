@@ -30,7 +30,7 @@ export const Nav = (props) => {
       <nav className="navbar">
         <ul>
           <li>
-            <Link to="/">AB</Link>
+            <Link to={loggedState ? "/members" : "/"}>AB</Link>
           </li>
           <li>
             {loggedState ? <a onClick={() => logOut()} href="/">Sign Out</a> : <Link to="/members">Sign In</Link>}
