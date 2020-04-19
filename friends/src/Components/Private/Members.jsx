@@ -32,7 +32,7 @@ export default function Members() {
   }
 
   const handleChange = e => {
-    setInput({ ...input, id: 7, [e.target.name]: e.target.value })
+    setInput({ ...input, id: Date.now(), [e.target.name]: e.target.value })
   }
 
   return (

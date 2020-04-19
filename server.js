@@ -119,17 +119,20 @@ app.post('/api/friends', authenticator, (req, res) => {
 
 app.put('/api/friends/:id', authenticator, (req, res) => {
   const { id } = req.params;
+  // const friendIndex = friends.findIndex(f => f.id == id);
+  const friend = friends.filter(friend => friend.id === id)
 
-  const friendIndex = friends.findIndex(f => f.id == id);
+  // if (friendIndex > -1) {
+  //   const friend = { ...friends[friendIndex], ...req.body };
 
-  if (friendIndex > -1) {
-    const friend = { ...friends[friendIndex], ...req.body };
+  //   friends = [
+  //     ...friends.slice(0, friendIndex),
+  //     friend,
+  //     ...friends.slice(friendIndex + 1)
+  //   ];
 
-    friends = [
-      ...friends.slice(0, friendIndex),
-      friend,
-      ...friends.slice(friendIndex + 1)
-    ];
+  if (friend.length === 0) {
+    friends = [req.body, ...friends]
     res.send(friends);
   } else {
     res.status(404).send({ msg: 'Friend not found' });
