@@ -19,9 +19,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 }
 
 export const Nav = (props) => {
+  const [loggedState, setLoggedState] = useState(false)
   const logOut = () => {
     console.log("log out");
     localStorage.removeItem('token')
+    setLoggedState(false)
   }
   return (
     <div>
@@ -31,13 +33,13 @@ export const Nav = (props) => {
             <Link to="/">AB</Link>
           </li>
           <li>
-            {localStorage.getItem('token') ? <a onClick={() => logOut()} href="/">Sign Out</a> : <Link to="/members">Sign In</Link>}
+            {loggedState ? <a onClick={() => logOut()} href="/">Sign Out</a> : <Link to="/members">Sign In</Link>}
           </li>
         </ul>
       </nav>
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route path="/login" component={Login} />
+        <Route path="/login" render={(props)=> <Login setLoggedState={setLoggedState} {...props}/>} />
         <PrivateRoute path="/members" component={Members} />
       </Switch>
     </div>

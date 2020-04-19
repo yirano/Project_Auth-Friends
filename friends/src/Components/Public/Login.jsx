@@ -11,6 +11,7 @@ export default function Login(props) {
         localStorage.setItem('token', res.data.payload)
         props.history.push('/members')
       })
+      props.setLoggedState(true)
   }
 
   const handleChange = e => {

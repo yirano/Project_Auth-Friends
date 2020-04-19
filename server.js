@@ -122,7 +122,7 @@ app.put('/api/friends/:id', authenticator, (req, res) => {
 
   const friendIndex = friends.findIndex(f => f.id == id);
 
-  if (friendIndex > -1) {
+  if (friendIndex == -1) {
     const friend = { ...friends[friendIndex], ...req.body };
 
     friends = [
