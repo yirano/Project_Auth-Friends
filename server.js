@@ -135,7 +135,9 @@ app.put('/api/friends/:id', authenticator, (req, res) => {
     friends = [req.body, ...friends]
     res.send(friends);
   } else {
-    res.status(404).send({ msg: 'Friend not found' });
+    res.status(404).send({
+      msg: 'Can\'t add friend'
+    });
   }
 });
 
