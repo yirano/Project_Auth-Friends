@@ -19,11 +19,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 }
 
 export const Nav = (props) => {
-  const [loggedState, setLoggedState] = useState(false)
+  const [loggedState, setLoggedState] = useState(false || JSON.parse(localStorage.getItem('loggedState')))
   const logOut = () => {
     console.log("log out");
     localStorage.removeItem('token')
-    setLoggedState(false)
+    localStorage.setItem('loggedState', false)
   }
   return (
     <div>
