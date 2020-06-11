@@ -1,0 +1,22 @@
+form {
+	display: flex;
+	align-self: center;
+	.inputContainer {
+		display: flex;
+		flex-direction: column;
+		label {
+			color: #fff;
+			font-size: 0.8rem;
+			margin-bottom: 4px;
+		}
+		input {
+			font-size: 0.8rem;
+			border: 1px solid rgb(0, 0, 0);
+			margin-right: 8px;
+			padding: 4px 3px;
+			&[type="submit"] {
+				margin-top: 15px;
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+.friendContainer {
+	padding: 0 12%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+
+	.friendCard {
+		margin: 1% 0;
+		padding: 1% 3%;
+		border-bottom: 1px solid #000;
+	}
+}
+
+.homePage {
+	display: flex;
+	height: 80vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginForm {
+	display: flex;
+	height: 80vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #eee;
+	form {
+		display: flex;
+		flex-direction: column;
+		width: 200px;
+	}
+}

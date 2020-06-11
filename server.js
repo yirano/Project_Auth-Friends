@@ -47,6 +47,19 @@ let friends = [
   }
 ];
 
+const logins = [
+  {
+    name: 'Sara',
+    user: 'sara@email.com',
+    password: 'sara'
+  },
+  {
+    name: 'John',
+    user: 'john@email.com',
+    password: 'john'
+  }
+]
+
 app.use(bodyParser.json());
 
 app.use(cors());
@@ -62,7 +75,8 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+
+  if (logins.filter(login => login.user === username && login.password === password).length > 0) {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
@@ -73,6 +87,11 @@ app.post('/api/login', (req, res) => {
       .json({ error: 'Username or Password incorrect. Please see Readme' });
   }
 });
+
+app.post('/api/signup', (req, res) => {
+  res.json({ message: 'something happened' })
+})
+
 
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
@@ -100,20 +119,25 @@ app.post('/api/friends', authenticator, (req, res) => {
 
 app.put('/api/friends/:id', authenticator, (req, res) => {
   const { id } = req.params;
+  // const friendIndex = friends.findIndex(f => f.id == id);
+  const friend = friends.filter(friend => friend.id === id)
 
-  const friendIndex = friends.findIndex(f => f.id == id);
+  // if (friendIndex > -1) {
+  //   const friend = { ...friends[friendIndex], ...req.body };
 
-  if (friendIndex > -1) {
-    const friend = { ...friends[friendIndex], ...req.body };
+  //   friends = [
+  //     ...friends.slice(0, friendIndex),
+  //     friend,
+  //     ...friends.slice(friendIndex + 1)
+  //   ];
 
-    friends = [
-      ...friends.slice(0, friendIndex),
-      friend,
-      ...friends.slice(friendIndex + 1)
-    ];
+  if (friend.length === 0) {
+    friends = [req.body, ...friends]
     res.send(friends);
   } else {
-    res.status(404).send({ msg: 'Friend not found' });
+    res.status(404).send({
+      msg: 'Can\'t add friend'
+    });
   }
 });
 
